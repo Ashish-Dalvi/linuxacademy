@@ -50,7 +50,7 @@ pipeline {
         stage('Upload Docker Image to AWS ECR') {
             steps {
 			   script {
-			      withDockerRegistry([credentialsId:'ecr:ap-south-1:ecr-credentials', url:"https://719580743266.dkr.ecr.ap-south-1.amazonaws.com"]){
+			      withDockerRegistry([credentialsId:'ecr:ap-south-1:linuxacademy-ecr', url:"761561323244.dkr.ecr.ap-south-1.amazonaws.com/linuxacademy"]){
                   sh """
                   echo "List the docker images present in local"
                   docker images
