@@ -1,6 +1,6 @@
 # Pull tomcat latest image from dockerhub
 FROM tomcat:8.0.51-jre8-alpine
-MAINTAINER email2satyam88@gmail.com
+MAINTAINER ashish.dalvi0211@gmail.com
 # copy war file on to container
 COPY ./target/linuxacademy.war /usr/local/tomcat/webapps
 EXPOSE  8080
