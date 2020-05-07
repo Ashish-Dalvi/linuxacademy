@@ -11,7 +11,7 @@
 	<groupId>com.radical</groupId>
 	<artifactId>linuxacademy</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>linuxacademy</name>
 	<description>linuxacademy is a port for various IT courses</description>
 
