@@ -30,8 +30,7 @@ pipeline {
 
         stage('Build Docker Image') {
            steps {
-           sh 'docker build -f linuxacademy -t ashishdalvi/test:1.0 .'
-
+                sh 'docker build -t linuxacademy .'
            }
          }
 
