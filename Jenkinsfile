@@ -40,8 +40,8 @@ pipeline {
 			     withCredentials([string(credentialsId: 'dockerhubC', variable: 'dockerhubC')]){
                  sh 'docker login docker.io -u ashishdalvi -p ${dockerhubC}'
                  echo "Push Docker Image to DockerHub : In Progress"
-                 sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:latest'
-				 sh 'docker push ashishdalvi/linuxacademy:latest'
+                 sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:v1.2'
+				 sh 'docker push ashishdalvi/linuxacademy:v1.2'
 				 echo "Push Docker Image to DockerHub : In Progress"
 				 }
               }
@@ -56,10 +56,10 @@ pipeline {
                   echo "List the docker images present in local"
                   docker images
 				  echo "Tagging the Docker Image: In Progress"
-				  docker tag linuxacademy:latest 761561323244.dkr.ecr.ap-south-1.amazonaws.com/linuxacademy:v1.2
+				  docker tag linuxacademy:latest 761561323244.dkr.ecr.ap-south-1.amazonaws.com/linuxacademy:latest
 				  echo "Tagging the Docker Image: Completed"
 				  echo "Push Docker Image to ECR : In Progress"
-				  docker push 761561323244.dkr.ecr.ap-south-1.amazonaws.com/linuxacademy:v1.2
+				  docker push 761561323244.dkr.ecr.ap-south-1.amazonaws.com/linuxacademy:latest
 				  echo "Push Docker Image to ECR : Completed"
 				  """
 				  }
