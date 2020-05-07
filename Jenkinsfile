@@ -30,6 +30,7 @@ pipeline {
 
         stage('Build Docker Image') {
            steps {
+                 sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:latest'
                 sh 'docker build -t linuxacademy .'
            }
          }
@@ -40,7 +41,7 @@ pipeline {
 			     withCredentials([string(credentialsId: 'dockerhubC', variable: 'dockerhubC')]){
                  sh 'docker login docker.io -u ashishdalvi -p ${dockerhubC}'
                  echo "Push Docker Image to DockerHub : In Progress"
-                 sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:latest'
+
 				 sh 'docker push ashishdalvi/linuxacademy:latest'
 				 echo "Push Docker Image to DockerHub : In Progress"
 				 }
