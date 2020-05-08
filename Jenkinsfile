@@ -72,7 +72,7 @@ pipeline {
                                 [
                  artifactId: 'linuxacademy',
                  classifier: '',
-                 file: 'target/linuxacademy.war',
+                 file: 'target/linuxacademy-1.0.0.war',
                  type: 'war'
                   ]
                   ],
