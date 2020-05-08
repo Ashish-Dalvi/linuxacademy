@@ -40,8 +40,8 @@ pipeline {
 			     withCredentials([string(credentialsId: 'dockerhubC', variable: 'dockerhubC')]){
                  sh 'docker login docker.io -u ashishdalvi -p ${dockerhubC}'
                  echo "Push Docker Image to DockerHub : In Progress"
-                 sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:latest'
-				 sh 'docker push ashishdalvi/linuxacademy:latest'
+                 sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:jenkins-${JOB_NAME}-${BUILD_NUMBER}'
+				 sh 'docker push ashishdalvi/linuxacademy:jenkins-${JOB_NAME}-${BUILD_NUMBER}'
 				 echo "Push Docker Image to DockerHub : In Progress"
 				 }
               }
@@ -68,28 +68,12 @@ pipeline {
 		}
         stage('Upload the docker Image to Nexus') {
             steps {
-                nexusArtifactUploader artifacts: [
-                                [
-                 artifactId: 'linuxacademy',
-                 classifier: '',
-                 file: 'target/linuxacademy-1.0.0.war',
-                 type: 'war'
-                  ]
-                  ],
-                  credentialsId: '0f8c40e3-e0fb-4daf-82e3-1ed42b2645d4',
-                  groupId: 'com.radical',
-                  nexusUrl: '172.31.40.225:8081',
-                  nexusVersion: 'nexus3',
-                  protocol: 'http',
-                  repository: 'linuxacademy',
-                  version: '0.0.1']
+                sh 'date;date;date'
             }
         }
-    }
-  }
         stage('Deploy to Production') {
             steps {
-                sh 'date;date;date'
+                sh 'date;date'
             }
         }
 
