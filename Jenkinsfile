@@ -73,7 +73,19 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-                sh 'date;date'
+                nexusArtifactUploader artifacts: [
+                [
+                artifactId: 'linuxacademy',
+                classifier: '',
+                file: 'target/linuxacademy-1.0.0.war',
+                type: 'war'
+                ]
+             ],
+             credentialsId: '0f8c40e3-e0fb-4daf-82e3-1ed42b2645d4',
+             groupId: 'com.radical',
+             nexusUrl: '172.31.40.225:8081',
+             nexusVersion: 'nexus3', protocol: 'http', repository: 'http://13.235.16.225:8081/repository/linuxacademy/',
+             version: '0.0.1'
             }
         }
 
