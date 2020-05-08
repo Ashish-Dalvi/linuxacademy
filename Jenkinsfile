@@ -41,7 +41,7 @@ pipeline {
                  sh 'docker login docker.io -u ashishdalvi -p ${dockerhubC}'
                  echo "Push Docker Image to DockerHub : In Progress"
                  sh 'docker tag 265d205cd580 ashishdalvi/linuxacademy:jenkins-${JOB_NAME}-${BUILD_NUMBER}'
-				 sh 'docker push ashishdalvi/linuxacademy:latest'
+				 sh 'docker push ashishdalvi/linuxacademy:jenkins-${JOB_NAME}-${BUILD_NUMBER}'
 				 echo "Push Docker Image to DockerHub : In Progress"
 				 }
               }
