@@ -75,8 +75,9 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 //sh 'date;date'
-                sh 'scp target/*.war jenkins@172.31.14.131:/opt/pet/'
-                sh "ssh jenkins@172.31.14.131 'nohup java -war /opt/pet/linuxacademy.war &'"
+                //sh 'scp target/*.war jenkins@18.181.74.5:/opt/pet/'
+                sh 'scp -i key.pem target/*.war ec2-user@172.31.14.131:/opt/pet/
+                sh "ssh ec2-user@172.31.14.131 'nohup java -war /opt/pet/linuxacademy.war &'"
             }
         }
 
