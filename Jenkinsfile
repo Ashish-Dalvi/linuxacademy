@@ -25,6 +25,7 @@ pipeline {
         stage('Code Package') {
             steps {
                 sh 'mvn clean package'
+                archiveArtifacts artifacts: 'target/*.war', fingerprint: true
             }
         }
 
