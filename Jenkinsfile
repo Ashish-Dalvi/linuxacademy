@@ -76,7 +76,8 @@ pipeline {
             steps {
                 //sh 'date;date'
                 //sh 'scp target/*.war jenkins@18.181.74.5:/opt/pet/'
-                sh 'scp target/*.war jenkins-slave-01@172.31.34.125:/home/ec2-user'
+                //sh 'scp target/*.war jenkins-slave-01@172.31.34.125:/home/ec2-user'
+                sh 'scp target/*.war ec2-user@13.231.130.175:/home/ec2-user'
                 sh "ssh jenkins-slave-01@172.31.34.125 'nohup java -war /home/linuxacademy.war &'"
             }
         }
