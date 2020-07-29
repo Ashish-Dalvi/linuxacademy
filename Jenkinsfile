@@ -49,24 +49,24 @@ pipeline {
             }
         }
 
-        stage('Upload Docker Image to AWS ECR') {
-            steps {
-			   script {
-			      withDockerRegistry([credentialsId:'ecr:ap-northeast-1:linuxacademy-cred', url:"https://142692870410.dkr.ecr.ap-northeast-1.amazonaws.com/linuxacademy"]){
-                  sh """
-                  echo "List the docker images present in local"
-                  docker images
-				  echo "Tagging the Docker Image: In Progress"
-				  docker tag linuxacademy:latest 142692870410.dkr.ecr.ap-northeast-1.amazonaws.com/linuxacademy:latest
-				  echo "Tagging the Docker Image: Completed"
-				  echo "Push Docker Image to ECR : In Progress"
-				  docker push 142692870410.dkr.ecr.ap-northeast-1.amazonaws.com/linuxacademy:latest
-				  echo "Push Docker Image to ECR : Completed"
-				  """
-				  }
-                }
-            }
-		}
+      //  stage('Upload Docker Image to AWS ECR') {
+        //    steps {
+		//	   script {
+		//	      withDockerRegistry([credentialsId:'ecr:ap-northeast-1:linuxacademy-cred', url:"https://142692870410.dkr.ecr.ap-northeast-1.amazonaws.com/linuxacademy"]){
+        //          sh """
+        //          echo "List the docker images present in local"
+        //          docker images
+		//		  echo "Tagging the Docker Image: In Progress"
+		//		  docker tag linuxacademy:latest 142692870410.dkr.ecr.ap-northeast-1.amazonaws.com/linuxacademy:latest
+		//		  echo "Tagging the Docker Image: Completed"
+		//		  echo "Push Docker Image to ECR : In Progress"
+		//		  docker push 142692870410.dkr.ecr.ap-northeast-1.amazonaws.com/linuxacademy:latest
+		//		  echo "Push Docker Image to ECR : Completed"
+		//		  """
+		//		  }
+        //        }
+        //    }
+		//}
         stage('Upload the docker Image to Nexus') {
             steps {
                 sh 'date;date;date'
