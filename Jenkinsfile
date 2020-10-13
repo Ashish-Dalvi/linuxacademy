@@ -74,10 +74,10 @@ pipeline {
         }
         stage('Deploy to Production') {
             steps {
-                //sh 'date;date'
+                sh 'date;date'
                 //sh 'scp target/*.war jenkins@18.181.74.5:/opt/pet/'
                 //sh 'scp target/*.war jenkins-slave-01@172.31.34.125:/home/ec2-user'
-                sh 'scp target/*.war ec2-user@172.31.42.211:/home/dockeradmin'
+                //'scp target/*.war ec2-user@172.31.42.211:/home/dockeradmin'
                // sh "ssh ec2-user@172.31.42.211 'nohup java -war /home/linuxacademy.war &'"
             }
         }
